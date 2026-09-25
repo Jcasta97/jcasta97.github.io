@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#2D5BD9}
+html{scroll-behavior:smooth}
+a{color:#EEF15A;text-decoration:none}
+a:hover{color:#fff}
+img,video{display:block}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes rise{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
+@keyframes pop{from{transform:scale(.85) rotate(-3deg);opacity:0}to{transform:none;opacity:1}}
+@keyframes slideL{from{transform:translateX(-80px);opacity:0}to{transform:none;opacity:1}}
+@keyframes flipIn{from{transform:perspective(900px) rotateY(90deg);opacity:0}to{transform:perspective(900px) rotateY(0);opacity:1}}
+@keyframes wob{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-18px) rotate(8deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes maskIn{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes blink{50%{opacity:0}}
+@keyframes drift{from{transform:translateY(80px)}to{transform:translateY(-80px)}}
+[data-lift]{transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+[data-lift]:hover{transform:translate(-6px,-6px) rotate(-1deg) !important;box-shadow:14px 14px 0 #111 !important}
+[data-strip]>div{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+[data-strip]>div:hover{transform:translateY(-10px) rotate(-1deg)}
+[data-strip]>div img,[data-strip]>div video{transition:transform .5s}
+[data-strip]>div:hover img,[data-strip]>div:hover video{transform:scale(1.05)}
+[data-split] .ch{display:inline-block;transform:translateY(0.6em) rotate(8deg);opacity:0;transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .6s}
+[data-split].in .ch{transform:none;opacity:1}
+[data-type].typing::after{content:'▌';margin-left:2px;animation:blink .8s steps(1) infinite}
+nav a{transition:color .2s}
+button{transition:transform .15s}
+button:hover{transform:translate(-2px,-2px)}
+button:active{transform:translate(2px,2px)}
+</style>
+</helmet>
+<div style="background:#2D5BD9;color:#fff;font-family:'Archivo',sans-serif;overflow-x:clip">
+
+<nav style="position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:16px clamp(18px,4vw,56px);background:#2D5BD9;border-bottom:2px solid #EEF15A;flex-wrap:wrap">
+  <a href="#top" style="font-family:'Anton';font-size:22px;letter-spacing:.02em;color:#EEF15A">JULIÁN CASTAÑEDA</a>
+  <div style="display:flex;gap:clamp(12px,2.4vw,32px);font-family:'Anton';font-size:16px;letter-spacing:.05em;flex-wrap:wrap">
+    <a href="#about">ABOUT</a><a href="#mazda">MAZDA</a><a href="#ggs">GGS</a><a href="#claro">CLARO GAMING</a><a href="#contact" style="color:#fff">LET’S TALK</a>
+  </div>
+</nav>
+
+<section id="top" data-screen-label="01 Hero" style="position:relative;min-height:88vh;padding:clamp(28px,4vw,56px) clamp(18px,4vw,56px) clamp(56px,7vw,96px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(24px,4vw,56px);align-items:center">
+  <div aria-hidden="true" style="position:absolute;top:12%;right:44%;width:46px;height:46px;background:#EEF15A;border:3px solid #111;animation:floaty 5s ease-in-out infinite"></div>
+  <div aria-hidden="true" style="position:absolute;bottom:18%;left:48%;width:70px;height:70px;border:6px solid #fff;border-radius:50%;animation:floaty 7s 1s ease-in-out infinite"></div>
+  <div aria-hidden="true" style="position:absolute;top:8%;right:6%;font-family:'Anton';font-size:90px;color:#EEF15A;line-height:1;animation:spin 14s linear infinite">✳</div>
+  <div style="padding-bottom:clamp(24px,4vw,56px);position:relative;z-index:1">
+    <div style="font-family:'Anton';font-size:clamp(20px,2vw,28px);color:#fff;letter-spacing:.04em;animation:slideL .8s both">DATA × CREATIVITY × GROWTH</div>
+    <div style="font-family:'Anton';color:#EEF15A;font-size:clamp(130px,19vw,300px);line-height:1;margin-top:14px;display:flex;flex-direction:column;gap:clamp(8px,1.2vw,18px)"><span style="display:block;animation:slideL .9s .1s cubic-bezier(.2,.8,.2,1) both">WHAT</span><span style="display:block;animation:rise .9s .3s cubic-bezier(.2,.8,.2,1) both">IF?</span></div>
+    <p data-type="" style="font-size:clamp(17px,1.4vw,20px);line-height:1.5;max-width:480px;margin:28px 0 0;min-height:3em">Social Media &amp; Growth Strategist. I build communities with the hook of a creative and the discipline of an analyst.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;animation:rise .9s .45s both">
+      <a href="#mazda" style="background:#EEF15A;color:#2D5BD9;font-family:'Anton';font-size:20px;padding:14px 26px;border:3px solid #111;box-shadow:6px 6px 0 #111">SEE THE WORK ↓</a>
+      <a href="#contact" style="background:transparent;color:#fff;font-family:'Anton';font-size:20px;padding:14px 26px;border:3px solid #fff">LET’S TALK →</a>
+    </div>
+  </div>
+  <div style="position:relative;justify-self:center;align-self:center;width:min(100%,400px);margin-top:-4vh;animation:pop 1s .2s cubic-bezier(.2,.8,.2,1) both">
+    <div style="aspect-ratio:4/5;overflow:hidden;border:3px solid #111;box-shadow:16px 16px 0 #111;transform:rotate(2deg);animation:maskIn 1.2s .3s cubic-bezier(.7,0,.2,1) both">
+      <img src="assets/me/hero_bw.png" alt="Julián Castañeda" style="width:100%;height:100%;object-fit:cover;object-position:50% 20%;filter:grayscale(1) contrast(1.08)">
+    </div>
+    <div style="position:absolute;left:-18px;bottom:40px;background:#EEF15A;color:#111;font-family:'Anton';font-size:22px;padding:10px 18px;border:3px solid #111;animation:wob 4s ease-in-out infinite">HI, I’M JULIÁN</div>
+  </div>
+</section>
+
+<div style="background:#EEF15A;color:#2D5BD9;border-block:3px solid #111;overflow:hidden;padding:14px 0">
+  <div style="display:flex;width:max-content;animation:mq 26s linear infinite;font-family:'Anton';font-size:clamp(24px,2.6vw,36px);gap:40px;white-space:nowrap">
+    <span>#1 TIKTOK IN ITS SECTOR · MAZDA</span><span>✕</span><span>215K+ INSTAGRAM COMMUNITY · MAZDA</span><span>✕</span><span>2,074 PLAYERS IN 2 MONTHS · GODS UNCHAINED</span><span>✕</span><span>900K+ REACH · SUPERCELL</span><span>✕</span><span>6 COUNTRIES · CLARO GAMING</span><span>✕</span>
+    <span>#1 TIKTOK IN ITS SECTOR · MAZDA</span><span>✕</span><span>215K+ INSTAGRAM COMMUNITY · MAZDA</span><span>✕</span><span>2,074 PLAYERS IN 2 MONTHS · GODS UNCHAINED</span><span>✕</span><span>900K+ REACH · SUPERCELL</span><span>✕</span><span>6 COUNTRIES · CLARO GAMING</span><span>✕</span>
+  </div>
+</div>
+
+<section id="about" data-screen-label="02 About" style="padding:clamp(72px,9vw,140px) clamp(18px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(36px,5vw,80px);align-items:center">
+  <div>
+    <div data-type="" style="font-family:'Anton';font-size:18px;letter-spacing:.08em;color:#EEF15A">WHAT IF…</div>
+    <h2 data-split="" style="font-family:'Anton';font-weight:400;font-size:clamp(46px,6vw,100px);line-height:.92;margin:12px 0 0;text-wrap:balance;animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 30%">YOUR SOCIAL MEDIA MANAGER ALSO READ THE DATA?</h2>
+    <p style="font-size:18px;line-height:1.6;max-width:540px;margin:26px 0 0">I’m Julián, a business administrator and marketer. I chase work that makes people feel something and then act on it. I create, I measure, and I let the data decide what we make next.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:34px;border:3px solid #111;background:#EEF15A;color:#111;max-width:560px">
+      <div style="padding:18px;border-right:3px solid #111;animation:rise linear both;animation-timeline:view();animation-range:entry 10% cover 30%"><div style="font-family:'Anton';font-size:24px">THE CREATIVE</div><div style="font-size:14px;margin-top:6px;font-weight:600">Stories that stop the scroll</div></div>
+      <div style="padding:18px;border-right:3px solid #111;animation:rise linear both;animation-timeline:view();animation-range:entry 20% cover 35%"><div style="font-family:'Anton';font-size:24px">THE ANALYST</div><div style="font-size:14px;margin-top:6px;font-weight:600">Decisions from Looker &amp; GA4</div></div>
+      <div style="padding:18px;background:#111;color:#EEF15A;animation:rise linear both;animation-timeline:view();animation-range:entry 30% cover 40%"><div style="font-family:'Anton';font-size:24px">TOGETHER</div><div style="font-size:14px;margin-top:6px;font-weight:600;color:#fff">Growth.</div></div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div style="aspect-ratio:3/4;overflow:hidden;border:3px solid #111;transform:rotate(-2deg);animation:flipIn linear both;animation-timeline:view();animation-range:entry 0% cover 30%"><img src="assets/me/sel1.min.jpg" alt="" style="width:100%;height:100%;object-fit:cover;filter:grayscale(1)"></div>
+    <div style="aspect-ratio:3/4;overflow:hidden;border:3px solid #111;transform:translateY(40px) rotate(2deg);animation:flipIn linear both;animation-timeline:view();animation-range:entry 10% cover 35%"><img src="assets/me/sel2.min.jpg" alt="" style="width:100%;height:100%;object-fit:cover;filter:grayscale(1)"></div>
+    <div style="aspect-ratio:3/4;overflow:hidden;border:3px solid #111;transform:rotate(1deg);animation:flipIn linear both;animation-timeline:view();animation-range:entry 0% cover 30%"><img src="assets/me/sel3.min.jpg" alt="" style="width:100%;height:100%;object-fit:cover;filter:grayscale(1)"></div>
+    <div style="aspect-ratio:3/4;overflow:hidden;border:3px solid #111;transform:translateY(40px) rotate(-1deg);animation:flipIn linear both;animation-timeline:view();animation-range:entry 10% cover 35%"><img src="assets/me/sel4.min.jpg" alt="" style="width:100%;height:100%;object-fit:cover;filter:grayscale(1)"></div>
+  </div>
+</section>
+
+<section data-screen-label="03 Selected work" style="background:#111;padding:clamp(60px,8vw,120px) clamp(18px,4vw,56px)">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:36px">
+    <h2 data-split="" style="font-family:'Anton';font-weight:400;font-size:clamp(48px,7vw,112px);line-height:.9;margin:0;color:#EEF15A">SELECTED WORK</h2>
+    <div style="font-size:15px;max-width:320px;color:#d6d6d6">Newest to oldest. Three brands, three industries, one method.</div>
+  </div>
+  <a href="#mazda" style="display:grid;grid-template-columns:60px minmax(0,1fr) minmax(0,300px);gap:24px;align-items:center;padding:28px 0;border-top:2px solid #EEF15A;color:#fff;animation:slideL linear both;animation-timeline:view();animation-range:entry 0% cover 25%">
+    <div style="font-family:'Anton';font-size:28px;color:#EEF15A">01</div>
+    <div><div style="font-family:'Anton';font-size:clamp(34px,4.4vw,64px);line-height:1">MAZDA</div><div style="font-size:15px;color:#cfcfcf;margin-top:6px">360° social media · community · automated reporting</div></div>
+    <div><div style="font-family:'Anton';font-size:clamp(36px,4vw,60px);color:#EEF15A;line-height:1">#1 ON TIKTOK</div><div style="font-size:14px;color:#cfcfcf;margin-top:6px">in its sector, with 144,276 followers</div></div>
+  </a>
+  <a href="#ggs" style="display:grid;grid-template-columns:60px minmax(0,1fr) minmax(0,300px);gap:24px;align-items:center;padding:28px 0;border-top:2px solid #EEF15A;color:#fff;animation:slideL linear both;animation-timeline:view();animation-range:entry 0% cover 25%">
+    <div style="font-family:'Anton';font-size:28px;color:#EEF15A">02</div>
+    <div><div style="font-family:'Anton';font-size:clamp(34px,4.4vw,64px);line-height:1">GGS</div><div style="font-size:15px;color:#cfcfcf;margin-top:6px">Growth manager · Supercell · Gods Unchained</div></div>
+    <div><div style="font-family:'Anton';font-size:clamp(36px,4vw,60px);color:#EEF15A;line-height:1">2,074 PLAYERS</div><div style="font-size:14px;color:#cfcfcf;margin-top:6px">active for Gods Unchained in 2 months</div></div>
+  </a>
+  <a href="#claro" style="display:grid;grid-template-columns:60px minmax(0,1fr) minmax(0,300px);gap:24px;align-items:center;padding:28px 0;border-block:2px solid #EEF15A;color:#fff;animation:slideL linear both;animation-timeline:view();animation-range:entry 0% cover 25%">
+    <div style="font-family:'Anton';font-size:28px;color:#EEF15A">03</div>
+    <div><div style="font-family:'Anton';font-size:clamp(34px,4.4vw,64px);line-height:1">CLARO GAMING CENAM</div><div style="font-size:15px;color:#cfcfcf;margin-top:6px">Regional social media manager · 6 countries</div></div>
+    <div><div style="font-family:'Anton';font-size:clamp(36px,4vw,60px);color:#EEF15A;line-height:1">50K+ FOLLOWERS</div><div style="font-size:14px;color:#cfcfcf;margin-top:6px">new, across 6 countries</div></div>
+  </a>
+</section>
+
+<section id="mazda" data-screen-label="04 Mazda" style="padding:clamp(72px,9vw,140px) clamp(18px,4vw,56px)">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
+    <div data-type="" style="font-family:'Anton';font-size:18px;letter-spacing:.08em;color:#EEF15A">CASE 01 · VML · MAZDA COLOMBIA</div>
+    <img src="assets/mazda/logo_white.png" alt="Mazda" style="height:34px;width:auto">
+  </div>
+  <h2 data-split="" style="font-family:'Anton';font-weight:400;font-size:clamp(50px,7.4vw,124px);line-height:.9;margin:18px 0 0;max-width:1200px;text-wrap:balance;animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 30%">WHAT IF A CAR BRAND BECAME IMPOSSIBLE TO SCROLL PAST?</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:clamp(20px,3vw,40px);margin-top:44px">
+    <div style="border-top:3px solid #EEF15A;padding-top:16px;animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 25%"><div style="font-family:'Anton';font-size:24px;color:#EEF15A">CONTENT</div><p style="font-size:16px;line-height:1.6;margin:10px 0 0">Reels, carousels and trends planned with the creative team, picking formats and moments from what the data showed.</p></div>
+    <div style="border-top:3px solid #EEF15A;padding-top:16px;animation:rise linear both;animation-timeline:view();animation-range:entry 5% cover 30%"><div style="font-family:'Anton';font-size:24px;color:#EEF15A">COMMUNITY</div><p style="font-size:16px;line-height:1.6;margin:10px 0 0">I reshaped how the brand replies on social: warmer, more human and aligned with “Vivir para inspirar”.</p></div>
+    <div style="border-top:3px solid #EEF15A;padding-top:16px;animation:rise linear both;animation-timeline:view();animation-range:entry 5% cover 30%"><div style="font-family:'Anton';font-size:24px;color:#EEF15A">MEASUREMENT</div><p style="font-size:16px;line-height:1.6;margin:10px 0 0">Automated reports in Emplifi and Looker Studio to read performance every week and optimize the content strategy.</p></div>
+    <div style="border-top:3px solid #EEF15A;padding-top:16px;animation:rise linear both;animation-timeline:view();animation-range:entry 5% cover 30%"><div style="font-family:'Anton';font-size:24px;color:#EEF15A">LISTENING</div><p style="font-size:16px;line-height:1.6;margin:10px 0 0">Constant social listening and competitor benchmarks in Emplifi to stay a step ahead of the category.</p></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:22px;margin-top:64px;align-items:stretch">
+    <div data-lift="" style="background:#EEF15A;color:#111;border:3px solid #111;box-shadow:8px 8px 0 #111;padding:22px;display:flex;flex-direction:column;animation:pop linear both;animation-timeline:view();animation-range:entry 0% cover 35%">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><div style="display:flex;align-items:center;gap:10px;color:#111"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M16.6 2h-3.3v13.2a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9a6.3 6.3 0 1 0 5.3 6.2V8.5a7.6 7.6 0 0 0 4.4 1.4V6.6a4.4 4.4 0 0 1-4.4-4.6z" fill="currentColor"></path></svg><span style="font-family:'Anton';font-size:26px;color:#111">TIKTOK</span></div><div style="font-family:'Anton';font-size:16px;background:#111;color:#EEF15A;padding:4px 10px">#1 IN SECTOR</div></div>
+      <div data-count="" style="font-family:'Anton';font-size:clamp(44px,4.4vw,80px);line-height:1;margin-top:18px;white-space:nowrap">144,276</div>
+      <div style="font-weight:600;font-size:14px">followers, the largest community in its sector</div>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:auto;padding-top:14px;border-top:2px solid #111"><div><div data-count="" style="font-family:'Anton';font-size:20px;white-space:nowrap">+47,819</div><div style="font-size:12px;font-weight:600">in 2025</div></div><div><div data-count="" style="font-family:'Anton';font-size:20px;white-space:nowrap">+81,208</div><div style="font-size:12px;font-weight:600">in 2026</div></div><div><div data-count="" style="font-family:'Anton';font-size:20px;white-space:nowrap">4.51%</div><div style="font-size:12px;font-weight:600">engagement</div></div></div>
+    </div>
+    <div data-lift="" style="background:#fff;color:#111;border:3px solid #111;box-shadow:8px 8px 0 #111;padding:22px;display:flex;flex-direction:column;animation:pop linear both;animation-timeline:view();animation-range:entry 10% cover 35%">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><div style="display:flex;align-items:center;gap:10px;color:#2D5BD9"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="6" fill="none" stroke="currentColor" stroke-width="2.2"></rect><circle cx="12" cy="12" r="4.6" fill="none" stroke="currentColor" stroke-width="2.2"></circle><circle cx="17.6" cy="6.4" r="1.4" fill="currentColor"></circle></svg><span style="font-family:'Anton';font-size:26px;color:#111">INSTAGRAM</span></div><div style="font-family:'Anton';font-size:16px;background:#2D5BD9;color:#fff;padding:4px 10px">#2 IN SECTOR</div></div>
+      <div data-count="" style="font-family:'Anton';font-size:clamp(44px,4.4vw,80px);line-height:1;margin-top:18px;white-space:nowrap">215,748</div>
+      <div style="font-weight:600;font-size:14px">followers, the 2nd largest community in its sector</div>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:auto;padding-top:14px;border-top:2px solid #111"><div><div data-count="" style="font-family:'Anton';font-size:20px;white-space:nowrap">+9,522</div><div style="font-size:12px;font-weight:600">in 2025</div></div><div><div data-count="" style="font-family:'Anton';font-size:20px;white-space:nowrap">+14,087</div><div style="font-size:12px;font-weight:600">in 2026</div></div><div><div data-count="" style="font-family:'Anton';font-size:20px;white-space:nowrap">3.54%</div><div style="font-size:12px;font-weight:600">engagement</div></div></div>
+    </div>
+    <div data-lift="" style="background:#111;color:#fff;border:3px solid #111;box-shadow:8px 8px 0 #EEF15A;padding:22px;display:flex;flex-direction:column;animation:pop linear both;animation-timeline:view();animation-range:entry 20% cover 35%">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><div style="display:flex;align-items:center;gap:10px;color:#EEF15A"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"></circle><path d="M13.4 21v-7.4h2.4l.4-2.8h-2.8V9c0-.8.3-1.4 1.4-1.4h1.5V5.1c-.3 0-1.1-.1-2.1-.1-2.1 0-3.5 1.3-3.5 3.6v2.2H8.4v2.8h2.3V21z" fill="#111"></path></svg><span style="font-family:'Anton';font-size:26px;color:#fff">FACEBOOK</span></div><div style="font-family:'Anton';font-size:16px;background:#EEF15A;color:#111;padding:4px 10px">2× IN 2026</div></div>
+      <div data-count="" style="font-family:'Anton';font-size:clamp(44px,4.4vw,80px);line-height:1;margin-top:18px;white-space:nowrap">327,572</div>
+      <div style="font-weight:600;font-size:14px">followers today</div>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:auto;padding-top:14px;border-top:2px solid #EEF15A"><div><div data-count="" style="font-family:'Anton';font-size:20px;white-space:nowrap">+16,478</div><div style="font-size:12px;font-weight:600">in 2025</div></div><div><div data-count="" style="font-family:'Anton';font-size:20px;white-space:nowrap">+32,425</div><div style="font-size:12px;font-weight:600">in 2026</div></div></div>
+    </div>
+  </div>
+
+  <div style="margin-top:110px;background:#EEF15A;color:#111;border:3px solid #111;padding:clamp(28px,4vw,56px);box-shadow:12px 12px 0 #111">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+      <div><div style="font-family:'Anton';font-size:18px;letter-spacing:.08em;color:#2D5BD9">THE BEST OF THE BEST</div>
+      <h3 data-split="" style="font-family:'Anton';font-weight:400;font-size:clamp(48px,6.4vw,104px);line-height:.9;margin:8px 0 0;animation:slideL linear both;animation-timeline:view();animation-range:entry 0% cover 30%">CONTENT THAT EARNED THE NUMBERS</h3></div>
+      <div style="font-size:16px;font-weight:600;max-width:320px">Organic interactions on the three posts that performed best on Instagram.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(24px,3vw,40px);margin-top:48px;align-items:start">
+    <div data-lift="" style="position:relative;transform:rotate(-1.5deg);animation:pop linear both;animation-timeline:view();animation-range:entry 0% cover 35%">
+      <div style="position:absolute;top:-18px;left:-10px;z-index:2;background:#111;color:#EEF15A;font-family:'Anton';font-size:20px;padding:6px 14px;border:3px solid #EEF15A">TOP 01</div>
+      <div style="border:3px solid #111;overflow:hidden;aspect-ratio:4/5;box-shadow:10px 10px 0 #111"><img src="assets/mazda2/p4.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+      <div style="background:#EEF15A;color:#111;border:3px solid #111;border-top:0;padding:16px 18px;box-shadow:10px 10px 0 #111"><div data-count="" style="font-family:'Anton';font-size:clamp(40px,4vw,58px);line-height:1">10,458</div><div style="font-size:14px;font-weight:700;margin-top:4px">interactions · 787B photo carousel</div></div>
+    </div>
+    <div data-lift="" style="position:relative;transform:rotate(1deg);animation:pop linear both;animation-timeline:view();animation-range:entry 10% cover 35%">
+      <div style="position:absolute;top:-18px;left:-10px;z-index:2;background:#111;color:#EEF15A;font-family:'Anton';font-size:20px;padding:6px 14px;border:3px solid #EEF15A">TOP 02</div>
+      <div style="border:3px solid #111;overflow:hidden;aspect-ratio:1350/1687;box-shadow:10px 10px 0 #111"><img src="assets/mazda2/fathers.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+      <div style="background:#EEF15A;color:#111;border:3px solid #111;border-top:0;padding:16px 18px;box-shadow:10px 10px 0 #111"><div data-count="" style="font-family:'Anton';font-size:clamp(40px,4vw,58px);line-height:1">4,129</div><div style="font-size:14px;font-weight:700;margin-top:4px">interactions · Father’s Day</div></div>
+    </div>
+    <div data-lift="" style="position:relative;transform:rotate(-1deg);animation:pop linear both;animation-timeline:view();animation-range:entry 20% cover 35%">
+      <div style="position:absolute;top:-18px;left:-10px;z-index:2;background:#111;color:#EEF15A;font-family:'Anton';font-size:20px;padding:6px 14px;border:3px solid #EEF15A">TOP 03</div>
+      <div style="border:3px solid #111;overflow:hidden;aspect-ratio:1854/2317;box-shadow:10px 10px 0 #111"><img src="assets/mazda2/eighties.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+      <div style="background:#EEF15A;color:#111;border:3px solid #111;border-top:0;padding:16px 18px;box-shadow:10px 10px 0 #111"><div data-count="" style="font-family:'Anton';font-size:clamp(40px,4vw,58px);line-height:1">3,314</div><div style="font-size:14px;font-weight:700;margin-top:4px">interactions · 80s trend</div></div>
+    </div>
+    </div>
+  </div>
+
+  <div style="margin-top:80px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+    <h3 data-split="" style="font-family:'Anton';font-weight:400;font-size:clamp(38px,4.6vw,70px);line-height:.92;margin:0">MORE FROM THE FEED</h3>
+    <div style="display:flex;gap:10px;align-items:center">
+      <span style="font-size:14px;margin-right:6px">Scroll or use the arrows</span>
+      <button onClick="{{ prevM }}" style="width:54px;height:54px;background:#EEF15A;color:#111;border:3px solid #111;font-family:'Anton';font-size:24px;cursor:pointer;box-shadow:4px 4px 0 #111">←</button>
+      <button onClick="{{ nextM }}" style="width:54px;height:54px;background:#EEF15A;color:#111;border:3px solid #111;font-family:'Anton';font-size:24px;cursor:pointer;box-shadow:4px 4px 0 #111">→</button>
+    </div>
+  </div>
+  <div data-strip="mazda" style="display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:28px 4px 22px;margin-top:6px;scrollbar-color:#EEF15A #2D5BD9">
+    <div style="flex:0 0 auto;height:clamp(380px,62vh,560px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><img src="assets/mazda2/p5.jpg" alt="" loading="lazy" style="height:100%;width:auto"></div>
+    <div style="flex:0 0 auto;height:clamp(380px,62vh,560px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><video src="assets/mazda2/v1.mp4" autoplay="" muted="" loop="" playsinline="" style="height:100%;aspect-ratio:9/16;width:auto;object-fit:cover"></video></div>
+    <div style="flex:0 0 auto;height:clamp(380px,62vh,560px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><img src="assets/mazda2/abs.jpg" alt="" loading="lazy" style="height:100%;width:auto"></div>
+    <div style="flex:0 0 auto;height:clamp(380px,62vh,560px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><img src="assets/mazda2/p3.jpg" alt="" loading="lazy" style="height:100%;width:auto"></div>
+    <div style="flex:0 0 auto;height:clamp(380px,62vh,560px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><video src="assets/mazda2/v2.mp4" autoplay="" muted="" loop="" playsinline="" style="height:100%;aspect-ratio:9/16;width:auto;object-fit:cover"></video></div>
+    <div style="flex:0 0 auto;height:clamp(380px,62vh,560px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><img src="assets/mazda2/p6.jpg" alt="" loading="lazy" style="height:100%;width:auto"></div>
+    <div style="flex:0 0 auto;height:clamp(380px,62vh,560px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><video src="assets/mazda/video_event.webm" poster="assets/mazda/poster_event.min.jpg" autoplay="" muted="" loop="" playsinline="" style="height:100%;aspect-ratio:9/16;width:auto;object-fit:cover"></video></div>
+    <div style="flex:0 0 auto;height:clamp(380px,62vh,560px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><img src="assets/mazda/content5.min.jpg" alt="" loading="lazy" style="height:100%;width:auto"></div>
+    <div style="flex:0 0 auto;height:clamp(380px,62vh,560px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><img src="assets/mazda/content14.jpg" alt="" loading="lazy" style="height:100%;width:auto"></div>
+    <div style="flex:0 0 auto;height:clamp(380px,62vh,560px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><video src="assets/mazda/video_rain.webm" poster="assets/mazda/poster_c4.min.jpg" autoplay="" muted="" loop="" playsinline="" style="height:100%;aspect-ratio:9/16;width:auto;object-fit:cover"></video></div>
+    <div style="flex:0 0 auto;height:clamp(380px,62vh,560px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><img src="assets/mazda/content18.jpg" alt="" loading="lazy" style="height:100%;width:auto"></div>
+    <div style="flex:0 0 auto;height:clamp(380px,62vh,560px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><img src="assets/mazda2/n1.jpg" alt="" loading="lazy" style="height:100%;width:auto"></div>
+    <div style="flex:0 0 auto;height:clamp(380px,62vh,560px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><img src="assets/mazda2/n2.jpg" alt="" loading="lazy" style="height:100%;width:auto"></div>
+    <div style="flex:0 0 auto;height:clamp(380px,62vh,560px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><img src="assets/mazda2/n3.jpg" alt="" loading="lazy" style="height:100%;width:auto"></div>
+  </div>
+
+  <div style="margin-top:96px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(28px,4vw,56px);align-items:start">
+    <div style="position:sticky;top:90px">
+      <div data-type="" style="font-family:'Anton';font-size:18px;letter-spacing:.08em;color:#EEF15A">THIS IS HOW I THINK</div>
+      <h3 data-split="" style="font-family:'Anton';font-weight:400;font-size:clamp(40px,5vw,78px);line-height:.92;margin:12px 0 0">REPORTS THAT DECIDE THE NEXT POST</h3>
+      <p style="font-size:17px;line-height:1.6;margin:18px 0 0;max-width:520px">Every week the reports turn into a content decision. Not totals, but what is working, where and why.</p>
+      <div style="display:flex;flex-direction:column;gap:0;margin-top:22px;border-top:2px solid #EEF15A">
+        <div style="padding:14px 0;border-bottom:2px solid #EEF15A;display:flex;gap:16px"><span style="font-family:'Anton';color:#EEF15A;font-size:22px">01</span><span style="font-size:16px;line-height:1.5"><b>Measure.</b> Reach, engagement and growth by network and by format.</span></div>
+        <div style="padding:14px 0;border-bottom:2px solid #EEF15A;display:flex;gap:16px"><span style="font-family:'Anton';color:#EEF15A;font-size:22px">02</span><span style="font-size:16px;line-height:1.5"><b>Compare.</b> Benchmarks and social listening against the competition in Emplifi.</span></div>
+        <div style="padding:14px 0;border-bottom:2px solid #EEF15A;display:flex;gap:16px"><span style="font-family:'Anton';color:#EEF15A;font-size:22px">03</span><span style="font-size:16px;line-height:1.5"><b>Decide.</b> Adjust formats, topics and timing in the content plan.</span></div>
+        <div style="padding:14px 0;border-bottom:2px solid #EEF15A;display:flex;gap:16px"><span style="font-family:'Anton';color:#EEF15A;font-size:22px">04</span><span style="font-size:16px;line-height:1.5"><b>Automate.</b> Looker Studio dashboards so the loop runs every week.</span></div>
+      </div>
+      <div style="font-size:13px;margin-top:18px;color:#dfe6ff">Emplifi &amp; Looker Studio reports built by me. Figures are not real; shown only to display the report layout.</div>
+    </div>
+    <div style="display:grid;gap:18px">
+      <img data-lift="" src="assets/mazda/rep_tiktok.png" alt="TikTok report" style="width:100%;height:auto;border:3px solid #111;box-shadow:8px 8px 0 #111;animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 25%">
+      <img data-lift="" src="assets/mazda/rep_instagram.min.png" alt="Instagram report" style="width:100%;height:auto;border:3px solid #111;box-shadow:8px 8px 0 #111;animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 25%">
+      <img data-lift="" src="assets/mazda/rep_community.png" alt="Community report" style="width:100%;height:auto;border:3px solid #111;box-shadow:8px 8px 0 #111;animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 25%">
+    </div>
+  </div>
+</section>
+
+<div style="background:#111;color:#EEF15A;border-block:3px solid #EEF15A;overflow:hidden;padding:12px 0;transform:rotate(-1.5deg);margin:0 -20px;position:relative;z-index:2">
+  <div style="display:flex;width:max-content;animation:mq 18s linear reverse infinite;font-family:'Anton';font-size:clamp(28px,3vw,44px);gap:36px;white-space:nowrap"><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span></div>
+</div>
+<section id="ggs" data-screen-label="05 GGs" style="background:#111;padding:clamp(72px,9vw,140px) clamp(18px,4vw,56px)">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
+    <div data-type="" style="font-family:'Anton';font-size:18px;letter-spacing:.08em;color:#EEF15A">CASE 02 · GGS LATAM · GAMING STARTUP</div>
+    <img src="assets/ggs/logo_white.png" alt="GGs" style="height:40px;width:auto">
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(28px,4vw,56px);margin-top:18px;align-items:center">
+    <div>
+      <h2 data-split="" style="font-family:'Anton';font-weight:400;font-size:clamp(50px,7vw,118px);line-height:.9;margin:0;color:#EEF15A;animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 30%">WHAT IF GAMERS COULD LIVE FROM GAMING?</h2>
+      <p style="font-size:17px;line-height:1.6;margin:24px 0 0;max-width:540px">GGs was built on that idea: connect gamers with real chances to win money playing the titles they already love. As Growth Manager I grew the community on Instagram, TikTok and Discord, and turned followers into players in our events.</p>
+    </div>
+    <div style="justify-self:center;width:min(100%,340px);border:3px solid #EEF15A;overflow:hidden;aspect-ratio:9/16;background:#000;box-shadow:12px 12px 0 #EEF15A;transform:rotate(2deg);animation:pop linear both;animation-timeline:view();animation-range:entry 0% cover 30%"><video src="assets/ggs/video_ggs.webm" poster="assets/ggs/poster_ggs.min.jpg" autoplay="" muted="" loop="" playsinline="" style="width:100%;height:100%;object-fit:cover"></video></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(28px,4vw,56px);margin-top:72px;align-items:center">
+    <div style="display:flex;flex-direction:column;border-top:3px solid #EEF15A">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 0;border-bottom:3px solid #EEF15A;animation:slideL linear both;animation-timeline:view();animation-range:entry 0% cover 25%"><div data-count="" style="font-family:'Anton';font-size:clamp(52px,6vw,96px);color:#EEF15A;line-height:1">128K</div><div style="font-size:15px;text-align:right">@ggslatam community<br>IG, TikTok &amp; Discord</div></div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 0;border-bottom:3px solid #EEF15A;animation:slideL linear both;animation-timeline:view();animation-range:entry 5% cover 30%"><div data-count="" style="font-family:'Anton';font-size:clamp(52px,6vw,96px);color:#EEF15A;line-height:1">200K+</div><div style="font-size:15px;text-align:right">community with<br>client brands</div></div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 0;border-bottom:3px solid #EEF15A;animation:slideL linear both;animation-timeline:view();animation-range:entry 10% cover 35%"><div data-count="" style="font-family:'Anton';font-size:clamp(52px,6vw,96px);color:#EEF15A;line-height:1">+220%</div><div style="font-size:15px;text-align:right">revenue growth<br>in the period</div></div>
+    </div>
+    <div style="justify-self:center;width:min(100%,440px)"><div style="position:relative;width:100%;max-width:440px;aspect-ratio:1/1">
+  <img src="assets/ggs/arcade.png" alt="GGs arcade machine" style="width:100%;height:100%;object-fit:contain">
+  <svg viewBox="0 0 320 285" preserveAspectRatio="none" style="position:absolute;left:36.6%;top:28.4%;width:24.8%;height:22%" aria-hidden="true">
+    <defs><clipPath id="scr2"><rect x="4" y="4" width="312" height="277" rx="34"></rect></clipPath></defs>
+    <g clip-path="url(#scr2)">
+      <circle cx="110" cy="150" r="7" fill="#111"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.313;0.323;1" dur="3.6s" repeatCount="indefinite"></animate></circle><circle cx="150" cy="150" r="7" fill="#111"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.438;0.448;1" dur="3.6s" repeatCount="indefinite"></animate></circle><circle cx="190" cy="150" r="7" fill="#111"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.563;0.573;1" dur="3.6s" repeatCount="indefinite"></animate></circle><circle cx="230" cy="150" r="7" fill="#111"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.688;0.698;1" dur="3.6s" repeatCount="indefinite"></animate></circle><circle cx="270" cy="150" r="7" fill="#111"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.813;0.823;1" dur="3.6s" repeatCount="indefinite"></animate></circle>
+      <g><animateTransform attributeName="transform" type="translate" values="-30 150;350 150" dur="3.6s" repeatCount="indefinite"></animateTransform>
+        <circle r="30" fill="#2D5BD9" stroke="#111" stroke-width="5"></circle>
+        <polygon points="0,0 40,-26 40,26" fill="#D8EC3A"><animate attributeName="points" values="0,0 40,-26 40,26;0,0 40,-2 40,2;0,0 40,-26 40,26" dur=".35s" repeatCount="indefinite"></animate></polygon>
+        <circle cx="4" cy="-15" r="4" fill="#111"></circle>
+      </g>
+      <g><animateTransform attributeName="transform" type="translate" values="-120 150;260 150" dur="3.6s" repeatCount="indefinite"></animateTransform>
+        <path d="M-28 28 V-4 A28 28 0 0 1 28 -4 V28 L19 20 L9 28 L0 20 L-9 28 L-19 20 Z" fill="#fff" stroke="#111" stroke-width="5" stroke-linejoin="round"></path>
+        <circle cx="-9" cy="-4" r="6" fill="#111"></circle><circle cx="11" cy="-4" r="6" fill="#111"></circle>
+      </g>
+      <text x="160" y="52" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="30" fill="#111" letter-spacing="3">SCORE 2074</text>
+    </g>
+  </svg>
+</div></div>
+  </div>
+
+  <div style="margin-top:110px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(28px,4vw,56px);align-items:start">
+    <div style="position:sticky;top:90px">
+      <div data-type="" style="font-family:'Anton';font-size:18px;letter-spacing:.08em;color:#EEF15A">REPORTING · WHAT I MEASURED</div>
+      <h3 data-split="" style="font-family:'Anton';font-weight:400;font-size:clamp(48px,6.4vw,104px);line-height:.9;margin:12px 0 0">ONE NORTH STAR: DAU</h3>
+      <p style="font-size:18px;line-height:1.6;margin:20px 0 0;max-width:540px">A DAU was anyone who played at least one event. Every report laddered up to that number, so each decision had one goal: more players, playing more often.</p>
+      <div style="display:flex;flex-direction:column;margin-top:24px;border-top:2px solid #EEF15A">
+        <div style="padding:16px 0;border-bottom:2px solid #EEF15A;display:grid;grid-template-columns:44px 1fr;gap:12px"><span style="font-family:'Anton';color:#EEF15A;font-size:26px">01</span><span style="font-size:16px;line-height:1.5"><b style="font-family:'Anton';font-weight:400;font-size:22px;display:block">PLAYERS PER GAME &amp; EVENT</b>Which titles and event types pulled players in, to double down on them.</span></div>
+        <div style="padding:16px 0;border-bottom:2px solid #EEF15A;display:grid;grid-template-columns:44px 1fr;gap:12px"><span style="font-family:'Anton';color:#EEF15A;font-size:26px">02</span><span style="font-size:16px;line-height:1.5"><b style="font-family:'Anton';font-weight:400;font-size:22px;display:block">THE WEBSITE FUNNEL</b>Visitors, sign ups and DAUs, from curious visitor to active player.</span></div>
+        <div style="padding:16px 0;border-bottom:2px solid #EEF15A;display:grid;grid-template-columns:44px 1fr;gap:12px"><span style="font-family:'Anton';color:#EEF15A;font-size:26px">03</span><span style="font-size:16px;line-height:1.5"><b style="font-family:'Anton';font-weight:400;font-size:22px;display:block">HOTJAR HEATMAPS</b>Where players clicked and dropped, fed back into the product.</span></div>
+      </div>
+      <div style="font-size:13px;margin-top:16px;color:#bdbdbd">Real dashboards I built. Figures modified to protect confidential data.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px">
+      <div style="grid-column:1 / -1"><div data-lift="" style="aspect-ratio:4/3;background:#fff;border:3px solid #EEF15A;display:flex;align-items:center;justify-content:center;overflow:hidden;animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 30%"><img src="assets/ggs/dash_games.min.png" alt="Players per game" style="max-width:100%;max-height:100%;object-fit:contain"></div></div>
+      <div data-lift="" style="aspect-ratio:4/3;background:#fff;border:3px solid #EEF15A;display:flex;align-items:center;justify-content:center;overflow:hidden;animation:rise linear both;animation-timeline:view();animation-range:entry 5% cover 30%"><img src="assets/ggs/dash_web2.min.png" alt="Web funnel" style="max-width:100%;max-height:100%;object-fit:contain"></div>
+      <div data-lift="" style="aspect-ratio:4/3;background:#fff;border:3px solid #EEF15A;display:flex;align-items:center;justify-content:center;overflow:hidden;animation:rise linear both;animation-timeline:view();animation-range:entry 10% cover 30%"><img src="assets/ggs/heatmap_home.min.png" alt="Heatmap home" style="max-width:100%;max-height:100%;object-fit:contain"></div>
+      <div data-lift="" style="aspect-ratio:4/3;background:#fff;border:3px solid #EEF15A;display:flex;align-items:center;justify-content:center;overflow:hidden;animation:rise linear both;animation-timeline:view();animation-range:entry 5% cover 30%"><img src="assets/ggs/heatmap_login.min.jpg" alt="Heatmap login" style="max-width:100%;max-height:100%;object-fit:contain"></div>
+    </div>
+  </div>
+
+  <div style="margin-top:110px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(28px,4vw,56px);align-items:center">
+    <div>
+      <div data-type="" style="font-family:'Anton';font-size:18px;letter-spacing:.08em;color:#EEF15A">CLIENT · GODS UNCHAINED</div>
+      <h3 data-split="" style="font-family:'Anton';font-weight:400;font-size:clamp(44px,5.6vw,88px);line-height:.92;margin:12px 0 0">WHAT IF 6 MONTHS OF WORK TOOK 2?</h3>
+      <p style="font-size:16px;line-height:1.6;margin:18px 0 0;max-width:520px">They reached 10,000 players in six months. We brought 2,074 active players in two, with a personalized site, continuous UX analysis, live events and organic plus paid campaigns.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:26px;background:#EEF15A;color:#111;border:3px solid #111">
+        <div style="padding:16px;border-right:3px solid #111"><div style="font-family:'Anton';font-size:clamp(30px,3vw,46px);line-height:1">103%</div><div style="font-size:12px;font-weight:600;margin-top:4px">of goal</div></div>
+        <div style="padding:16px;border-right:3px solid #111"><div style="font-family:'Anton';font-size:clamp(30px,3vw,46px);line-height:1">37K+</div><div style="font-size:12px;font-weight:600;margin-top:4px">matches played</div></div>
+        <div style="padding:16px"><div style="font-family:'Anton';font-size:clamp(30px,3vw,46px);line-height:1">18</div><div style="font-size:12px;font-weight:600;margin-top:4px">matches per player</div></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start">
+      <img src="assets/ggs/gods.min.jpg" alt="Gods Unchained" style="width:100%;height:auto;border:3px solid #EEF15A;animation:pop linear both;animation-timeline:view();animation-range:entry 0% cover 25%">
+      <video src="assets/ggs/video_gods2.webm" poster="assets/ggs/poster_gods2.min.jpg" autoplay="" muted="" loop="" playsinline="" style="width:100%;height:auto;border:3px solid #EEF15A;animation:pop linear both;animation-timeline:view();animation-range:entry 10% cover 30%"></video>
+    </div>
+  </div>
+
+  <div style="margin-top:110px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(28px,4vw,56px);align-items:center">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start">
+      <video src="assets/ggs/video_supercell.webm" poster="assets/ggs/poster_supercell.min.jpg" autoplay="" muted="" loop="" playsinline="" style="width:100%;height:auto;border:3px solid #EEF15A;animation:pop linear both;animation-timeline:view();animation-range:entry 0% cover 25%"></video>
+      <img src="assets/ggs/clash_daily.min.jpg" alt="Clash Royale" style="width:100%;height:auto;border:3px solid #EEF15A;animation:pop linear both;animation-timeline:view();animation-range:entry 10% cover 30%">
+    </div>
+    <div>
+      <div data-type="" style="font-family:'Anton';font-size:18px;letter-spacing:.08em;color:#EEF15A">CLIENT · SUPERCELL</div>
+      <h3 data-split="" style="font-family:'Anton';font-weight:400;font-size:clamp(44px,5.6vw,88px);line-height:.92;margin:12px 0 0">TOURNAMENTS, CHALLENGES &amp; LIVES</h3>
+      <p style="font-size:16px;line-height:1.6;margin:18px 0 0;max-width:520px">Clash Royale and Brawl Stars tournaments, in game challenges and live shows with streamers, backed by organic content and paid media.</p>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-top:26px;background:#EEF15A;color:#111;border:3px solid #111">
+        <div style="padding:16px;border-right:3px solid #111;border-bottom:3px solid #111"><div style="font-family:'Anton';font-size:clamp(32px,3.2vw,50px);line-height:1">900K+</div><div style="font-size:12px;font-weight:600;margin-top:4px">campaign reach</div></div>
+        <div style="padding:16px;border-bottom:3px solid #111"><div style="font-family:'Anton';font-size:clamp(32px,3.2vw,50px);line-height:1">4,000+</div><div style="font-size:12px;font-weight:600;margin-top:4px">gamers in our events</div></div>
+        <div style="padding:16px;border-right:3px solid #111"><div style="font-family:'Anton';font-size:clamp(32px,3.2vw,50px);line-height:1">1,000</div><div style="font-size:12px;font-weight:600;margin-top:4px">playing at once</div></div>
+        <div style="padding:16px"><div style="font-family:'Anton';font-size:clamp(32px,3.2vw,50px);line-height:1">2,700</div><div style="font-size:12px;font-weight:600;margin-top:4px">live viewers</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="background:#111;color:#EEF15A;border-block:3px solid #EEF15A;overflow:hidden;padding:12px 0;transform:rotate(1.5deg);margin:0 -20px;position:relative;z-index:2">
+  <div style="display:flex;width:max-content;animation:mq 18s linear reverse infinite;font-family:'Anton';font-size:clamp(28px,3vw,44px);gap:36px;white-space:nowrap"><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span></div>
+</div>
+<section id="claro" data-screen-label="06 Claro Gaming" style="padding:clamp(72px,9vw,140px) clamp(18px,4vw,56px)">
+  <div data-type="" style="font-family:'Anton';font-size:18px;letter-spacing:.08em;color:#EEF15A">CASE 03 · CLARO GAMING CENAM · REGIONAL SOCIAL MEDIA MANAGER</div>
+  <h2 data-split="" style="font-family:'Anton';font-weight:400;font-size:clamp(50px,7.4vw,124px);line-height:.9;margin:18px 0 0;max-width:1200px;text-wrap:balance;animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 30%">WHAT IF A TELCO BECAME A GAMING BRAND?</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(28px,4vw,56px);margin-top:40px;align-items:center">
+    <div>
+      <p style="font-size:17px;line-height:1.6;margin:0;max-width:540px">I launched the channels from zero, ran content and daily management, and worked with design, influencers, the paid media team and the local team in each country on local strategies and tournaments.</p>
+      <p style="font-size:17px;line-height:1.6;margin:16px 0 0;max-width:540px">One Facebook page per country. Instagram and TikTok as regional profiles.</p>
+      <div style="display:flex;flex-direction:column;margin-top:28px;border-top:2px solid #EEF15A">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding:16px 0;border-bottom:2px solid #EEF15A;flex-wrap:wrap;animation:slideL linear both;animation-timeline:view();animation-range:entry 0% cover 30%"><div><div style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#EEF15A">TOP REACH</div><div style="font-family:'Anton';font-size:28px">🇳🇮 NICARAGUA</div></div><div style="text-align:right"><div data-count="" style="font-family:'Anton';font-size:clamp(34px,3.4vw,50px);line-height:1;color:#EEF15A">58,916</div><div style="font-size:13px">avg reach per post</div></div></div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding:16px 0;border-bottom:2px solid #EEF15A;flex-wrap:wrap;animation:slideL linear both;animation-timeline:view();animation-range:entry 5% cover 35%"><div><div style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#EEF15A">BEST ENGAGEMENT</div><div style="font-family:'Anton';font-size:28px">🇬🇹 GUATEMALA</div></div><div style="text-align:right"><div style="font-family:'Anton';font-size:clamp(34px,3.4vw,50px);line-height:1;color:#EEF15A">2.83%</div><div style="font-size:13px">avg engagement</div></div></div>
+      </div>
+    </div>
+    <div style="background:#111;border:3px solid #111;box-shadow:10px 10px 0 #EEF15A;padding:clamp(16px,2vw,28px);animation:pop linear both;animation-timeline:view();animation-range:entry 0% cover 30%"><img src="assets/claro/cenam_map_v2.svg" alt="Central America map" style="width:100%;height:auto"></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:0;margin-top:64px;background:#EEF15A;color:#111;border:3px solid #111;box-shadow:8px 8px 0 #111">
+    <div style="padding:24px;border-right:3px solid #111"><div style="font-family:'Anton';font-size:clamp(44px,4.4vw,68px);line-height:1" data-count="">50K+</div><div style="font-size:14px;font-weight:600;margin-top:6px">new followers · FB, IG, TikTok</div></div>
+    <div style="padding:24px;border-right:3px solid #111"><div style="font-family:'Anton';font-size:clamp(44px,4.4vw,68px);line-height:1">3.5%</div><div style="font-size:14px;font-weight:600;margin-top:6px">sustained avg engagement</div></div>
+    <div style="padding:24px;border-right:3px solid #111"><div style="font-family:'Anton';font-size:clamp(44px,4.4vw,68px);line-height:1">670K</div><div style="font-size:14px;font-weight:600;margin-top:6px">organic IG views · Jul to Dec</div></div>
+    <div style="padding:24px"><div style="font-family:'Anton';font-size:clamp(40px,4vw,62px);line-height:1;white-space:nowrap">1K–2K</div><div style="font-size:14px;font-weight:600;margin-top:6px">gamers per tournament</div></div>
+  </div>
+  <div style="font-family:'Anton';font-size:clamp(28px,3.4vw,52px);line-height:1.05;margin-top:40px;max-width:1000px">THE TELCO WITH THE <span style="color:#EEF15A">LARGEST GAMING COMMUNITY</span> IN LATAM.</div>
+
+  <div style="margin-top:80px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(28px,4vw,56px);align-items:center">
+    <div>
+      <div data-type="" style="font-family:'Anton';font-size:18px;letter-spacing:.08em;color:#EEF15A">ONE VOICE · SIX AUDIENCES</div>
+      <h3 data-split="" style="font-family:'Anton';font-weight:400;font-size:clamp(40px,5vw,76px);line-height:.92;margin:12px 0 0">6 FACEBOOK PAGES, 2 REGIONAL PROFILES</h3>
+      <p style="font-size:16px;line-height:1.6;margin:18px 0 0;max-width:500px">A Facebook page for each country, and Instagram and TikTok run as regional profiles for all of CENAM.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:22px;border:3px solid #EEF15A">
+        <div style="padding:16px;border-right:3px solid #EEF15A"><div style="font-family:'Anton';font-size:clamp(34px,3.4vw,50px);color:#EEF15A;line-height:1">670K+</div><div style="font-size:13px;margin-top:4px">organic IG views · Jul to Dec</div></div>
+        <div style="padding:16px"><div style="font-family:'Anton';font-size:clamp(34px,3.4vw,50px);color:#EEF15A;line-height:1">27K+</div><div style="font-size:13px;margin-top:4px">organic IG interactions</div></div>
+      </div>
+    </div>
+    <div style="display:flex;gap:18px;justify-content:center;align-items:flex-start;max-width:520px;justify-self:center;width:100%">
+      <div data-lift="" style="flex:1 1 0;min-width:0;aspect-ratio:9/16;overflow:hidden;border:3px solid #111;box-shadow:8px 8px 0 #111;background:#fff;transform:rotate(-2deg);animation:pop linear both;animation-timeline:view();animation-range:entry 0% cover 35%"><img src="assets/claro/ig.min.jpg" alt="Instagram CENAM" style="width:100%;height:100%;object-fit:cover;object-position:top"></div>
+      <div data-lift="" style="flex:1 1 0;min-width:0;aspect-ratio:9/16;overflow:hidden;border:3px solid #111;box-shadow:8px 8px 0 #111;background:#fff;transform:translateY(30px) rotate(2deg);animation:pop linear both;animation-timeline:view();animation-range:entry 10% cover 35%"><img src="assets/claro/tiktok.min.jpg" alt="TikTok CENAM" style="width:100%;height:100%;object-fit:cover;object-position:top"></div>
+    </div>
+  </div>
+  <div style="margin-top:80px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+    <h3 data-split="" style="font-family:'Anton';font-weight:400;font-size:clamp(38px,4.6vw,70px);line-height:.92;margin:0">INFLUENCERS, MEMES &amp; TOURNAMENTS</h3>
+    <div style="display:flex;gap:10px">
+      <button onClick="{{ prevC }}" style="width:54px;height:54px;background:#EEF15A;color:#111;border:3px solid #111;font-family:'Anton';font-size:24px;cursor:pointer;box-shadow:4px 4px 0 #111">←</button>
+      <button onClick="{{ nextC }}" style="width:54px;height:54px;background:#EEF15A;color:#111;border:3px solid #111;font-family:'Anton';font-size:24px;cursor:pointer;box-shadow:4px 4px 0 #111">→</button>
+    </div>
+  </div>
+  <div data-strip="claro" style="display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:28px 4px 22px;scrollbar-color:#EEF15A #2D5BD9">
+    <div style="flex:0 0 auto;height:clamp(340px,56vh,500px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><video src="assets/claro/video_inf4.webm" autoplay="" muted="" loop="" playsinline="" style="height:100%;width:auto;aspect-ratio:9/16;object-fit:cover"></video></div>
+    <div style="flex:0 0 auto;height:clamp(340px,56vh,500px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><img src="assets/claro/c1.min.jpg" alt="" style="height:100%;width:auto"></div>
+    <div style="flex:0 0 auto;height:clamp(340px,56vh,500px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><video src="assets/claro/video_inf15.webm" autoplay="" muted="" loop="" playsinline="" style="height:100%;width:auto;aspect-ratio:9/16;object-fit:cover"></video></div>
+    <div style="flex:0 0 auto;height:clamp(340px,56vh,500px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><img src="assets/claro/c2.min.jpg" alt="" style="height:100%;width:auto"></div>
+    <div style="flex:0 0 auto;height:clamp(340px,56vh,500px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><video src="assets/claro/video_cenam.webm" poster="assets/claro/poster_cenam.min.jpg" autoplay="" muted="" loop="" playsinline="" style="height:100%;width:auto;aspect-ratio:9/16;object-fit:cover"></video></div>
+    <div style="flex:0 0 auto;height:clamp(340px,56vh,500px);scroll-snap-align:start;border:3px solid #111;background:#000;overflow:hidden"><img src="assets/claro/c3.min.jpg" alt="" style="height:100%;width:auto"></div>
+  </div>
+</section>
+
+<div style="background:#111;color:#EEF15A;border-block:3px solid #EEF15A;overflow:hidden;padding:12px 0;transform:rotate(-1.5deg);margin:0 -20px;position:relative;z-index:2">
+  <div style="display:flex;width:max-content;animation:mq 18s linear reverse infinite;font-family:'Anton';font-size:clamp(28px,3vw,44px);gap:36px;white-space:nowrap"><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span><span>WHAT IF?</span><span style="color:#fff">✕</span></div>
+</div>
+<section data-screen-label="07 Tools" style="background:#fff;color:#111;padding:clamp(60px,8vw,110px) clamp(18px,4vw,56px);border-top:3px solid #111">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,5vw,72px);align-items:center">
+    <div>
+      <h2 data-split="" style="font-family:'Anton';font-weight:400;font-size:clamp(50px,6.6vw,110px);line-height:.9;margin:0;color:#2D5BD9">THE STACK BEHIND THE GROWTH</h2>
+      <p style="font-size:17px;line-height:1.6;margin:22px 0 0;max-width:460px">The tools I use every week to measure, report, plan and create.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+      <div data-lift="" style="background:#EEF2FF;padding:22px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;animation:pop linear both;animation-timeline:view();animation-range:entry 0% cover 30%"><div style="width:100%;max-width:130px;height:48px;display:flex;align-items:center;justify-content:center"><img src="assets/tools/looker.png" alt="" style="max-width:100%;max-height:44px;width:auto;height:auto;object-fit:contain;mix-blend-mode:multiply"></div><span style="font-family:'Anton';font-size:15px;text-align:center">LOOKER STUDIO</span></div>
+      <div data-lift="" style="background:#EEF2FF;padding:22px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;animation:pop linear both;animation-timeline:view();animation-range:entry 3% cover 30%"><div style="width:100%;max-width:130px;height:48px;display:flex;align-items:center;justify-content:center"><img src="assets/tools/ga4.png" alt="" style="max-width:100%;max-height:44px;width:auto;height:auto;object-fit:contain;mix-blend-mode:multiply"></div><span style="font-family:'Anton';font-size:15px;text-align:center">GA4</span></div>
+      <div data-lift="" style="background:#EEF2FF;padding:22px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;animation:pop linear both;animation-timeline:view();animation-range:entry 6% cover 30%"><div style="width:100%;max-width:130px;height:48px;display:flex;align-items:center;justify-content:center"><img src="assets/tools/emplifi.png" alt="" style="max-width:100%;max-height:44px;width:auto;height:auto;object-fit:contain;mix-blend-mode:multiply"></div><span style="font-family:'Anton';font-size:15px;text-align:center">EMPLIFI</span></div>
+      <div data-lift="" style="background:#EEF2FF;padding:22px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;animation:pop linear both;animation-timeline:view();animation-range:entry 9% cover 30%"><div style="width:100%;max-width:130px;height:48px;display:flex;align-items:center;justify-content:center"><img src="assets/tools/hotjar.webp" alt="" style="max-width:100%;max-height:44px;width:auto;height:auto;object-fit:contain;mix-blend-mode:multiply"></div><span style="font-family:'Anton';font-size:15px;text-align:center">HOTJAR</span></div>
+      <div data-lift="" style="background:#EEF2FF;padding:22px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;animation:pop linear both;animation-timeline:view();animation-range:entry 12% cover 30%"><div style="width:100%;max-width:130px;height:48px;display:flex;align-items:center;justify-content:center"><img src="assets/tools/metricool.png" alt="" style="max-width:100%;max-height:44px;width:auto;height:auto;object-fit:contain;mix-blend-mode:multiply"></div><span style="font-family:'Anton';font-size:15px;text-align:center">METRICOOL</span></div>
+      <div data-lift="" style="background:#EEF2FF;padding:22px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;animation:pop linear both;animation-timeline:view();animation-range:entry 15% cover 30%"><div style="width:100%;max-width:130px;height:48px;display:flex;align-items:center;justify-content:center"><img src="assets/tools/wppopen.jpeg" alt="" style="max-width:100%;max-height:44px;width:auto;height:auto;object-fit:contain;mix-blend-mode:multiply"></div><span style="font-family:'Anton';font-size:15px;text-align:center">WPP OPEN</span></div>
+      <div data-lift="" style="background:#EEF2FF;padding:22px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;animation:pop linear both;animation-timeline:view();animation-range:entry 18% cover 30%"><div style="width:100%;max-width:130px;height:48px;display:flex;align-items:center;justify-content:center"><img src="assets/tools/asana.png" alt="" style="max-width:100%;max-height:44px;width:auto;height:auto;object-fit:contain;mix-blend-mode:multiply"></div><span style="font-family:'Anton';font-size:15px;text-align:center">ASANA</span></div>
+      <div data-lift="" style="background:#EEF2FF;padding:22px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;animation:pop linear both;animation-timeline:view();animation-range:entry 21% cover 30%"><div style="width:100%;max-width:130px;height:48px;display:flex;align-items:center;justify-content:center"><img src="assets/tools/office.png" alt="" style="max-width:100%;max-height:44px;width:auto;height:auto;object-fit:contain;mix-blend-mode:multiply"></div><span style="font-family:'Anton';font-size:15px;text-align:center">OFFICE</span></div>
+      <div data-lift="" style="background:#EEF2FF;padding:22px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;animation:pop linear both;animation-timeline:view();animation-range:entry 24% cover 30%"><div style="width:100%;max-width:130px;height:48px;display:flex;align-items:center;justify-content:center"><img src="assets/tools/claude.png" alt="" style="max-width:100%;max-height:44px;width:auto;height:auto;object-fit:contain;mix-blend-mode:multiply"></div><span style="font-family:'Anton';font-size:15px;text-align:center">CLAUDE</span></div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="08 Why me" style="background:#111;padding:clamp(72px,9vw,140px) clamp(18px,4vw,56px)">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,72px);align-items:center">
+    <div>
+      <div data-type="" style="font-family:'Anton';font-size:18px;letter-spacing:.08em;color:#EEF15A">WHY ME</div>
+      <h2 data-split="" style="font-family:'Anton';font-weight:400;font-size:clamp(50px,7vw,116px);line-height:.9;margin:12px 0 0;color:#fff">WHAT IF I JOIN YOUR TEAM?</h2>
+      <div style="display:flex;flex-direction:column;margin-top:32px;border-top:2px solid #EEF15A">
+        <div style="display:grid;grid-template-columns:56px 1fr;gap:14px;padding:18px 0;border-bottom:2px solid #EEF15A;animation:slideL linear both;animation-timeline:view();animation-range:entry 0% cover 30%"><span style="font-family:'Anton';font-size:30px;color:#EEF15A">01</span><div><div style="font-family:'Anton';font-size:clamp(22px,2vw,28px);color:#fff">CREATIVE + ANALYST</div><div style="font-size:16px;line-height:1.5;color:#dcdcdc;margin-top:4px">I make the content and I read the data behind it. One person, both sides of the loop.</div></div></div>
+        <div style="display:grid;grid-template-columns:56px 1fr;gap:14px;padding:18px 0;border-bottom:2px solid #EEF15A;animation:slideL linear both;animation-timeline:view();animation-range:entry 5% cover 30%"><span style="font-family:'Anton';font-size:30px;color:#EEF15A">02</span><div><div style="font-family:'Anton';font-size:clamp(22px,2vw,28px);color:#fff">PROVEN IN 3 INDUSTRIES</div><div style="font-size:16px;line-height:1.5;color:#dcdcdc;margin-top:4px">Automotive, a gaming startup and a telco. Same method, results in each one.</div></div></div>
+        <div style="display:grid;grid-template-columns:56px 1fr;gap:14px;padding:18px 0;border-bottom:2px solid #EEF15A;animation:slideL linear both;animation-timeline:view();animation-range:entry 10% cover 30%"><span style="font-family:'Anton';font-size:30px;color:#EEF15A">03</span><div><div style="font-family:'Anton';font-size:clamp(22px,2vw,28px);color:#fff">REPORTING THAT RUNS ITSELF</div><div style="font-size:16px;line-height:1.5;color:#dcdcdc;margin-top:4px">Automated dashboards in Looker Studio and Emplifi, so decisions happen every week.</div></div></div>
+        <div style="display:grid;grid-template-columns:56px 1fr;gap:14px;padding:18px 0;border-bottom:2px solid #EEF15A;animation:slideL linear both;animation-timeline:view();animation-range:entry 15% cover 30%"><span style="font-family:'Anton';font-size:30px;color:#EEF15A">04</span><div><div style="font-family:'Anton';font-size:clamp(22px,2vw,28px);color:#fff">BUILT FOR SCALE</div><div style="font-size:16px;line-height:1.5;color:#dcdcdc;margin-top:4px">Six countries, local teams, influencers and paid media working as one plan.</div></div></div>
+      </div>
+    </div>
+    <div style="position:relative;justify-self:center;width:min(100%,480px)">
+      <div style="aspect-ratio:4/5;border:3px solid #EEF15A;box-shadow:14px 14px 0 #EEF15A;background:#2D5BD9;overflow:hidden;transform:rotate(-2deg);animation:pop linear both;animation-timeline:view();animation-range:entry 0% cover 35%"><img src="assets/me/setup.jpg" alt="Julián's setup" style="width:100%;height:100%;object-fit:cover"></div>
+      <div style="position:absolute;right:-12px;bottom:36px;background:#EEF15A;color:#111;font-family:'Anton';font-size:20px;padding:10px 16px;border:3px solid #111;animation:wob 4s ease-in-out infinite">WHERE THE MAGIC HAPPENS</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-screen-label="08 CTA" style="background:#EEF15A;color:#2D5BD9;padding:clamp(80px,10vw,160px) clamp(18px,4vw,56px);text-align:center;border-top:3px solid #111">
+  <div style="font-family:'Anton';font-size:clamp(90px,16vw,250px);line-height:.95;animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 35%">WHAT IF<br>WE TALK?</div>
+  <p style="font-size:19px;line-height:1.5;color:#111;max-width:560px;margin:28px auto 0;font-weight:500">Your next growth story could start with one message. Bogotá, Colombia · remote &amp; relocation.</p>
+  <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:36px">
+    <a data-lift="" href="mailto:juliancasta097@gmail.com" style="background:#2D5BD9;color:#fff;font-family:'Anton';font-size:24px;padding:16px 32px;border:3px solid #111;box-shadow:6px 6px 0 #111">SEND AN EMAIL →</a>
+    <a data-lift="" href="https://wa.me/573213940641?text=Hi%20Juli%C3%A1n%2C%20I%20saw%20your%20portfolio" target="_blank" rel="noopener" style="background:#111;color:#EEF15A;font-family:'Anton';font-size:24px;padding:16px 32px;border:3px solid #111;box-shadow:6px 6px 0 #2D5BD9">WHATSAPP →</a>
+    <a data-lift="" href="https://www.linkedin.com/in/juliancastaneda-growth-manager/" target="_blank" rel="noopener" style="background:#fff;color:#2D5BD9;font-family:'Anton';font-size:24px;padding:16px 32px;border:3px solid #111;box-shadow:6px 6px 0 #111">LINKEDIN →</a>
+  </div>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  fixVideos(){
+    document.querySelectorAll('video').forEach(v=>{
+      v.muted=true; v.defaultMuted=true; v.volume=0; v.loop=true; v.playsInline=true;
+      v.setAttribute('muted',''); v.setAttribute('playsinline','');
+      if(!v.__jc){ v.__jc=1;
+        v.addEventListener('volumechange',()=>{ if(!v.muted) v.muted=true; });
+        v.addEventListener('ended',()=>{ v.currentTime=0; v.play().catch(()=>{}); });
+        v.addEventListener('pause',()=>{ if(!document.hidden) setTimeout(()=>v.play().catch(()=>{}),200); });
+      }
+      if(v.paused) v.play().catch(()=>{});
+    });
+  }
+  setupCounts(){
+    if(!('IntersectionObserver' in window)) return;
+    const els=[...document.querySelectorAll('[data-count]')].filter(e=>!e.__c);
+    if(!this._io) this._io=new IntersectionObserver(es=>es.forEach(en=>{
+      if(!en.isIntersecting) return; const el=en.target; this._io.unobserve(el);
+      const txt=el.__orig; const m=txt.match(/^([^\d]*)([\d,]+(?:\.\d+)?)(.*)$/); if(!m){el.textContent=txt;return;}
+      const target=parseFloat(m[2].replace(/,/g,'')); const dec=(m[2].split('.')[1]||'').length; const commas=m[2].includes(',');
+      const t0=performance.now(), D=1400;
+      const step=t=>{ const p=Math.min(1,(t-t0)/D), e=1-Math.pow(1-p,3); let v=(target*e).toFixed(dec);
+        if(commas) v=Number(v).toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+        el.textContent=m[1]+v+m[3]; if(p<1) requestAnimationFrame(step); else el.textContent=txt; };
+      requestAnimationFrame(step);
+    }),{threshold:.4});
+    els.forEach(e=>{ e.__c=1; e.__orig=e.textContent.trim(); this._io.observe(e); });
+  }
+  setupText(){
+    if(!('IntersectionObserver' in window)) return;
+    if(!this._io2) this._io2=new IntersectionObserver(es=>es.forEach(en=>{
+      if(!en.isIntersecting) return; const el=en.target; this._io2.unobserve(el);
+      if(el.hasAttribute('data-split')) el.classList.add('in');
+      if(el.hasAttribute('data-type')){ const full=el.__full; let i=0; el.classList.add('typing');
+        const tick=()=>{ i+=Math.max(1,Math.round(full.length/60)); el.textContent=full.slice(0,i); if(i<full.length) setTimeout(tick,22); else setTimeout(()=>el.classList.remove('typing'),900); }; tick(); }
+    }),{threshold:.35});
+    document.querySelectorAll('[data-split]').forEach(el=>{ if(el.__s) return; el.__s=1;
+      let n=0; const walk=node=>{ [...node.childNodes].forEach(c=>{
+        if(c.nodeType===3){ const frag=document.createDocumentFragment();
+          c.textContent.split(/(\s+)/).forEach(w=>{ if(!w) return; if(/^\s+$/.test(w)){frag.appendChild(document.createTextNode(w));return;}
+            const ws=document.createElement('span'); ws.style.display='inline-block'; ws.style.whiteSpace='nowrap';
+            [...w].forEach(ch=>{ const sp=document.createElement('span'); sp.className='ch'; sp.textContent=ch; sp.style.transitionDelay=(Math.min(n++,40)*0.025)+'s'; ws.appendChild(sp); });
+            frag.appendChild(ws); });
+          c.replaceWith(frag);
+        } else if(c.nodeType===1) walk(c); }); };
+      walk(el); this._io2.observe(el); });
+    document.querySelectorAll('[data-type]').forEach(el=>{ if(el.__t) return; el.__t=1; el.__full=el.textContent; el.textContent=''; this._io2.observe(el); });
+  }
+  scrollStrip(name,dir){ const el=document.querySelector('[data-strip="'+name+'"]'); if(el) el.scrollBy({left:dir*el.clientWidth*0.7,behavior:'smooth'}); }
+  componentDidMount(){ this.fixVideos(); this.setupCounts(); setTimeout(()=>this.setupText(),50); this._t=setInterval(()=>{this.fixVideos();this.setupCounts();},2000); }
+  componentDidUpdate(){ this.fixVideos(); }
+  componentWillUnmount(){ clearInterval(this._t); if(this._io) this._io.disconnect(); }
+  renderVals(){ return {
+    prevM:()=>this.scrollStrip('mazda',-1), nextM:()=>this.scrollStrip('mazda',1),
+    prevC:()=>this.scrollStrip('claro',-1), nextC:()=>this.scrollStrip('claro',1)
+  }; }
+}
+</script>
+</body>
+</html>
