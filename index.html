@@ -39,6 +39,15 @@ nav a{transition:color .2s}
 button{transition:transform .15s}
 button:hover{transform:translate(-2px,-2px)}
 button:active{transform:translate(2px,2px)}
+@media (max-width:760px){
+  [data-shape]{display:none !important}
+  nav{position:relative !important}
+  nav>a{font-size:18px !important}
+  nav>div{font-size:14px !important;gap:12px !important}
+  [data-work-row]{grid-template-columns:40px minmax(0,1fr) !important;row-gap:10px !important}
+  [data-work-row]>div:last-child{grid-column:2 / -1}
+  [data-sticky]{position:static !important}
+}
 </style>
 </helmet>
 <div style="background:#2D5BD9;color:#fff;font-family:'Archivo',sans-serif;overflow-x:clip">
@@ -51,9 +60,9 @@ button:active{transform:translate(2px,2px)}
 </nav>
 
 <section id="top" data-screen-label="01 Hero" style="position:relative;min-height:88vh;padding:clamp(28px,4vw,56px) clamp(18px,4vw,56px) clamp(56px,7vw,96px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(24px,4vw,56px);align-items:center">
-  <div aria-hidden="true" style="position:absolute;top:12%;right:44%;width:46px;height:46px;background:#EEF15A;border:3px solid #111;animation:floaty 5s ease-in-out infinite"></div>
-  <div aria-hidden="true" style="position:absolute;bottom:18%;left:48%;width:70px;height:70px;border:6px solid #fff;border-radius:50%;animation:floaty 7s 1s ease-in-out infinite"></div>
-  <div aria-hidden="true" style="position:absolute;top:8%;right:6%;font-family:'Anton';font-size:90px;color:#EEF15A;line-height:1;animation:spin 14s linear infinite">✳</div>
+  <div data-shape="" aria-hidden="true" style="position:absolute;top:12%;right:44%;width:46px;height:46px;background:#EEF15A;border:3px solid #111;animation:floaty 5s ease-in-out infinite"></div>
+  <div data-shape="" aria-hidden="true" style="position:absolute;bottom:18%;left:48%;width:70px;height:70px;border:6px solid #fff;border-radius:50%;animation:floaty 7s 1s ease-in-out infinite"></div>
+  <div data-shape="" aria-hidden="true" style="position:absolute;top:8%;right:6%;width:90px;height:90px;animation:spin 14s linear infinite"><svg viewBox="0 0 90 90" width="90" height="90"><g stroke="#EEF15A" stroke-width="7" stroke-linecap="round"><line x1="45" y1="6" x2="45" y2="84"></line><line x1="6" y1="45" x2="84" y2="45"></line><line x1="17" y1="17" x2="73" y2="73"></line><line x1="73" y1="17" x2="17" y2="73"></line></g></svg></div>
   <div style="padding-bottom:clamp(24px,4vw,56px);position:relative;z-index:1">
     <div style="font-family:'Anton';font-size:clamp(20px,2vw,28px);color:#fff;letter-spacing:.04em;animation:slideL .8s both">DATA × CREATIVITY × GROWTH</div>
     <div style="font-family:'Anton';color:#EEF15A;font-size:clamp(130px,19vw,300px);line-height:1;margin-top:14px;display:flex;flex-direction:column;gap:clamp(8px,1.2vw,18px)"><span style="display:block;animation:slideL .9s .1s cubic-bezier(.2,.8,.2,1) both">WHAT</span><span style="display:block;animation:rise .9s .3s cubic-bezier(.2,.8,.2,1) both">IF?</span></div>
@@ -102,17 +111,17 @@ button:active{transform:translate(2px,2px)}
     <h2 data-split="" style="font-family:'Anton';font-weight:400;font-size:clamp(48px,7vw,112px);line-height:.9;margin:0;color:#EEF15A">SELECTED WORK</h2>
     <div style="font-size:15px;max-width:320px;color:#d6d6d6">Newest to oldest. Three brands, three industries, one method.</div>
   </div>
-  <a href="#mazda" style="display:grid;grid-template-columns:60px minmax(0,1fr) minmax(0,300px);gap:24px;align-items:center;padding:28px 0;border-top:2px solid #EEF15A;color:#fff;animation:slideL linear both;animation-timeline:view();animation-range:entry 0% cover 25%">
+  <a data-work-row="" href="#mazda" style="display:grid;grid-template-columns:60px minmax(0,1fr) minmax(0,300px);gap:24px;align-items:center;padding:28px 0;border-top:2px solid #EEF15A;color:#fff;animation:slideL linear both;animation-timeline:view();animation-range:entry 0% cover 25%">
     <div style="font-family:'Anton';font-size:28px;color:#EEF15A">01</div>
     <div><div style="font-family:'Anton';font-size:clamp(34px,4.4vw,64px);line-height:1">MAZDA</div><div style="font-size:15px;color:#cfcfcf;margin-top:6px">360° social media · community · automated reporting</div></div>
     <div><div style="font-family:'Anton';font-size:clamp(36px,4vw,60px);color:#EEF15A;line-height:1">#1 ON TIKTOK</div><div style="font-size:14px;color:#cfcfcf;margin-top:6px">in its sector, with 144,276 followers</div></div>
   </a>
-  <a href="#ggs" style="display:grid;grid-template-columns:60px minmax(0,1fr) minmax(0,300px);gap:24px;align-items:center;padding:28px 0;border-top:2px solid #EEF15A;color:#fff;animation:slideL linear both;animation-timeline:view();animation-range:entry 0% cover 25%">
+  <a data-work-row="" href="#ggs" style="display:grid;grid-template-columns:60px minmax(0,1fr) minmax(0,300px);gap:24px;align-items:center;padding:28px 0;border-top:2px solid #EEF15A;color:#fff;animation:slideL linear both;animation-timeline:view();animation-range:entry 0% cover 25%">
     <div style="font-family:'Anton';font-size:28px;color:#EEF15A">02</div>
     <div><div style="font-family:'Anton';font-size:clamp(34px,4.4vw,64px);line-height:1">GGS</div><div style="font-size:15px;color:#cfcfcf;margin-top:6px">Growth manager · Supercell · Gods Unchained</div></div>
     <div><div style="font-family:'Anton';font-size:clamp(36px,4vw,60px);color:#EEF15A;line-height:1">2,074 PLAYERS</div><div style="font-size:14px;color:#cfcfcf;margin-top:6px">active for Gods Unchained in 2 months</div></div>
   </a>
-  <a href="#claro" style="display:grid;grid-template-columns:60px minmax(0,1fr) minmax(0,300px);gap:24px;align-items:center;padding:28px 0;border-block:2px solid #EEF15A;color:#fff;animation:slideL linear both;animation-timeline:view();animation-range:entry 0% cover 25%">
+  <a data-work-row="" href="#claro" style="display:grid;grid-template-columns:60px minmax(0,1fr) minmax(0,300px);gap:24px;align-items:center;padding:28px 0;border-block:2px solid #EEF15A;color:#fff;animation:slideL linear both;animation-timeline:view();animation-range:entry 0% cover 25%">
     <div style="font-family:'Anton';font-size:28px;color:#EEF15A">03</div>
     <div><div style="font-family:'Anton';font-size:clamp(34px,4.4vw,64px);line-height:1">CLARO GAMING CENAM</div><div style="font-size:15px;color:#cfcfcf;margin-top:6px">Regional social media manager · 6 countries</div></div>
     <div><div style="font-family:'Anton';font-size:clamp(36px,4vw,60px);color:#EEF15A;line-height:1">50K+ FOLLOWERS</div><div style="font-size:14px;color:#cfcfcf;margin-top:6px">new, across 6 countries</div></div>
@@ -204,7 +213,7 @@ button:active{transform:translate(2px,2px)}
   </div>
 
   <div style="margin-top:96px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(28px,4vw,56px);align-items:start">
-    <div style="position:sticky;top:90px">
+    <div data-sticky="" style="position:sticky;top:90px">
       <div data-type="" style="font-family:'Anton';font-size:18px;letter-spacing:.08em;color:#EEF15A">THIS IS HOW I THINK</div>
       <h3 data-split="" style="font-family:'Anton';font-weight:400;font-size:clamp(40px,5vw,78px);line-height:.92;margin:12px 0 0">REPORTS THAT DECIDE THE NEXT POST</h3>
       <p style="font-size:17px;line-height:1.6;margin:18px 0 0;max-width:520px">Every week the reports turn into a content decision. Not totals, but what is working, where and why.</p>
@@ -268,7 +277,7 @@ button:active{transform:translate(2px,2px)}
   </div>
 
   <div style="margin-top:110px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(28px,4vw,56px);align-items:start">
-    <div style="position:sticky;top:90px">
+    <div data-sticky="" style="position:sticky;top:90px">
       <div data-type="" style="font-family:'Anton';font-size:18px;letter-spacing:.08em;color:#EEF15A">REPORTING · WHAT I MEASURED</div>
       <h3 data-split="" style="font-family:'Anton';font-weight:400;font-size:clamp(48px,6.4vw,104px);line-height:.9;margin:12px 0 0">ONE NORTH STAR: DAU</h3>
       <p style="font-size:18px;line-height:1.6;margin:20px 0 0;max-width:540px">A DAU was anyone who played at least one event. Every report laddered up to that number, so each decision had one goal: more players, playing more often.</p>
